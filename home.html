@@ -1,46 +1,56 @@
-<head>
-  <script type="text/javascript">
-    $(document).animate({scrollLeft:$('section:nth-child(2)').offset().left});
-  </script>
-  <!-- NOTE: 화면(view)을 전환하는거는 미리 올려둔 페이지를 스크롤 해서 구성하면 된다 생각했으나! jquery 가 필요하다캄
-            jquery 설치하는 것보고, 같이 구성하면 될듯.-->
-  <style media="screen">
-  body, html {
-      font-size: 100%;
-      padding: 0;
-      margin: 0;
-      height: 100%;
-      overflow: hidden; /* NOTE: 좌우로 확장된 view 페이지로 인한 스크롤 바를 감추기 위함 */
-  }
-
-  #view {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    text-align: middle;
-  }
-
-  section:nth-child(2) {
-      top: 0;
-      left: 100%;
-      background: #009688;
-  }
-
-  #bar {
-    top: 0;
-    position: fixed;
-    width: 100%;
-    text-align: center;
-  }
-
-  iframe{
-    outline: none;
-    border: 0;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
+<!DOCTYPE html>
+<html>
   <head>
+    <script type="text/javascript" src="jquery.js"></script>
+
+
+    <script type="text/javascript">
+      //$("body").scroll
+      $(function(){
+        $("html, body").animate({scrollLeft:$('section').offset().left});
+        var tout;
+        $tout = setTimeout(function(){$("html, body").animate({scrollLeft:$('section:nth-child(2)').offset().left});},1000);
+      });
+    </script>
+    <!-- NOTE: 화면(view)을 전환하는거는 미리 올려둔 페이지를 스크롤 해서 구성하면 된다 생각했으나! jquery 가 필요하다캄
+    jquery 설치하는 것보고, 같이 구성하면 될듯.-->
+    <style media="screen">
+      body, html {
+        font-size: 100%;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        overflow: hidden; /* NOTE: 좌우로 확장된 view 페이지로 인한 스크롤 바를 감추기 위함 */
+      }
+
+      #view {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: middle;
+      }
+
+      section:nth-child(2) {
+        top: 0;
+        left: 100%;
+        background: #ffffff;
+      }
+
+
+      #bar {
+        top: 0;
+        position: fixed;
+        width: 100%;
+        text-align: center;
+      }
+
+      iframe{
+        outline: none;
+        border: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
     <title>home</title>
   </head>
   <body>
@@ -48,11 +58,11 @@
       <iframe src="clock.view/index.html"></iframe>
     </section>
     <section id="view">
-      <iframe src=""></iframe>
+      <iframe src="clock.view/index.html"></iframe>
     </section>
     <section id="bar">
-      top menu <!-- NOTE: 여기 상단바 디자인은 어떻게 할까? -->
-      <!-- NOTE: 메터리얼 아이콘으로 랜덤 슬라이드인지,  -->
+    top menu <!-- NOTE: 여기 상단바 디자인은 어떻게 할까? -->
+    <!-- NOTE: 메터리얼 아이콘으로 랜덤 슬라이드인지,  -->
     </section>
   </body>
-</head>
+</html>
