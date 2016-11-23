@@ -6,11 +6,35 @@
 
     <script type="text/javascript">
       //$("body").scroll
-      $(function(){
-        $("html, body").animate({scrollLeft:$('section').offset().left});
-        var tout;
-        $tout = setTimeout(function(){$("html, body").animate({scrollLeft:$('section:nth-child(2)').offset().left});},1000);
-      });
+      var a = 1;
+      $(document).ready(
+        function(){
+          setting();
+          setInterval(move, 3000);
+          console.log('hello');
+        }
+      );
+
+      function setting() {
+        $('#view[idx="'+(a)+'"]').css("left","0%");
+        $('#view[idx="'+(a)+'"]').css("z-index","-1");
+        $('#view[idx="'+(3-a)+'"]').css("left","100%");
+        $('#view[idx="'+(3-a)+'"]').css("z-index","1");
+      }
+
+      function move() {
+        if(a == 1){
+          a = 2;
+        }else{
+          a = 1;
+        }
+        $('#view[idx="'+(3-a)+'"]').animate({left: "0%"},function(){
+          $('#view[idx="'+(a)+'"]').css("left","100%");
+          $('#view[idx="'+(a)+'"]').css("z-index","1");
+          $('#view[idx="'+(3-a)+'"]').css("z-index","-1");
+          //$('#view[idx="1"]').animate({left: "0%"});
+        });
+      }
     </script>
     <!-- NOTE: 화면(view)을 전환하는거는 미리 올려둔 페이지를 스크롤 해서 구성하면 된다 생각했으나! jquery 가 필요하다캄
     jquery 설치하는 것보고, 같이 구성하면 될듯.-->
@@ -30,18 +54,13 @@
         text-align: middle;
       }
 
-      section:nth-child(2) {
-        top: 0;
-        left: 100%;
-        background: #ffffff;
-      }
-
 
       #bar {
         top: 0;
         position: fixed;
         width: 100%;
         text-align: center;
+        z-index: 99;
       }
 
       iframe{
@@ -54,15 +73,16 @@
     <title>home</title>
   </head>
   <body>
-    <section id="view">
-      <iframe src="clock.view/index.html"></iframe>
-    </section>
-    <section id="view">
-      <iframe src="clock.view/index.html"></iframe>
-    </section>
-    <section id="bar">
+    <div id="bar">
     top menu <!-- NOTE: 여기 상단바 디자인은 어떻게 할까? -->
     <!-- NOTE: 메터리얼 아이콘으로 랜덤 슬라이드인지,  -->
+  </div>
+    <section id="view" idx="1">
+      <iframe src="clock.view/index.html"></iframe>
     </section>
+    <section id="view" idx="2">
+      <iframe src="http://sgnhi.org"></iframe>
+    </section>
+
   </body>
 </html>
