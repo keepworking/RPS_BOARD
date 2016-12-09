@@ -11,6 +11,7 @@
       function start() {
         setting();
         var t = setTimeout(move, 3000);
+        console.log("start");
       }
 
       function setting() {
@@ -18,8 +19,7 @@
         $('#view[idx="'+(a)+'"]').css("z-index","-1");
         $('#view[idx="'+(3-a)+'"]').css("left","100%");
         $('#view[idx="'+(3-a)+'"]').css("z-index","1");
-        $('#view[idx="'+(a)+'"]').stop();
-        $('#view[idx="'+(3-a)+'"]').stop();
+        console.log("setting finish");
       }
 
       function move() {
@@ -74,7 +74,7 @@
     </style>
     <title>home</title>
   </head>
-  <body onload="">
+  <body onload="start()">
     <div id="bar">
     top menu
   </div>
