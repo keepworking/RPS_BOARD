@@ -15,10 +15,14 @@
       }
 
       function setting() {
-        $('#view[idx="'+(a)+'"]').css("left","0%");
-        $('#view[idx="'+(a)+'"]').css("z-index","-1");
-        $('#view[idx="'+(3-a)+'"]').css("left","100%");
-        $('#view[idx="'+(3-a)+'"]').css("z-index","1");
+        var view1 = $('#view[idx="'+(a)+'"]');
+        var view2 = $('#view[idx="'+(3-a)+'"]');
+        view1.css("left","0%");
+        view1.css("z-index","-1");
+        view2.css("left","100%");
+        view2.css("z-index","1");
+        view1 = null;
+        view2 = null;
         console.log("setting finish");
       }
 
@@ -28,14 +32,18 @@
         }else{
           a = 1;
         }
-        $('#view[idx="'+(3-a)+'"]').animate({left: "0%"},function(){
-          $('#view[idx="'+(a)+'"]').css("left","100%");
-          $('#view[idx="'+(a)+'"]').css("z-index","1");
-          $('#view[idx="'+(3-a)+'"]').css("z-index","-1");
-          $('#view[idx="'+(a)+'"]').clearQueue();
-          $('#view[idx="'+(3-a)+'"]').clearQueue();
-          $('#view[idx="'+(a)+'"]').finish();
-          $('#view[idx="'+(3-a)+'"]').finish();
+        var view1 = $('#view[idx="'+(a)+'"]');
+        var view2 = $('#view[idx="'+(3-a)+'"]');
+        view2.animate({left: "0%"},function(){
+          view1.css("left","100%");
+          view1.css("z-index","1");
+          view2.css("z-index","-1");
+          view1.clearQueue();
+          view2.clearQueue();
+          view1.finish();
+          view2.finish();
+          view1 = null;
+          view2 = null;
           var t = setTimeout(move, 3000);
         });
       }
