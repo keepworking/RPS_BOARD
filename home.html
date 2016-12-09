@@ -7,18 +7,19 @@
     <script type="text/javascript">
       //$("body").scroll
       var a = 1;
-      $(document).ready(
-        function(){
-          setting();
-          setInterval(move, 3000);
-        }
-      );
+
+      function start() {
+        setting();
+        var t = setTimeout(move, 3000);
+      }
 
       function setting() {
         $('#view[idx="'+(a)+'"]').css("left","0%");
         $('#view[idx="'+(a)+'"]').css("z-index","-1");
         $('#view[idx="'+(3-a)+'"]').css("left","100%");
         $('#view[idx="'+(3-a)+'"]').css("z-index","1");
+        $('#view[idx="'+(a)+'"]').stop();
+        $('#view[idx="'+(3-a)+'"]').stop();
       }
 
       function move() {
@@ -31,19 +32,20 @@
           $('#view[idx="'+(a)+'"]').css("left","100%");
           $('#view[idx="'+(a)+'"]').css("z-index","1");
           $('#view[idx="'+(3-a)+'"]').css("z-index","-1");
-          //$('#view[idx="1"]').animate({left: "0%"});
+          $('#view[idx="'+(a)+'"]').stop();
+          $('#view[idx="'+(3-a)+'"]').stop();
+          var t = setTimeout(move, 3000);
         });
       }
     </script>
-    <!-- NOTE: 화면(view)을 전환하는거는 미리 올려둔 페이지를 스크롤 해서 구성하면 된다 생각했으나! jquery 가 필요하다캄
-    jquery 설치하는 것보고, 같이 구성하면 될듯.-->
+
     <style media="screen">
       body, html {
         font-size: 100%;
         padding: 0;
         margin: 0;
         height: 100%;
-        overflow: hidden; /* NOTE: 좌우로 확장된 view 페이지로 인한 스크롤 바를 감추기 위함 */
+        overflow: hidden;
       }
 
       #view {
@@ -60,6 +62,7 @@
         width: 100%;
         text-align: center;
         z-index: 99;
+        display: none;
       }
 
       iframe{
@@ -71,10 +74,9 @@
     </style>
     <title>home</title>
   </head>
-  <body>
+  <body onload="">
     <div id="bar">
-    top menu <!-- NOTE: 여기 상단바 디자인은 어떻게 할까? -->
-    <!-- NOTE: 메터리얼 아이콘으로 랜덤 슬라이드인지,  -->
+    top menu
   </div>
     <section id="view" idx="1">
       <iframe src="clock.view/index.html"></iframe>
