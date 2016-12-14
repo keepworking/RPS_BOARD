@@ -10,7 +10,7 @@
 
       function start() {
         setting();
-        var t = setTimeout(move, 3000);
+        var t = setTimeout(run, 3000);
         console.log("start");
       }
 
@@ -25,6 +25,11 @@
         view2 = null;
         console.log("setting finish");
       }
+
+      function run() {
+        window.requestAnimationFrame(move);
+      }
+
 
       function move() {
         if(a == 1){
@@ -44,7 +49,7 @@
           view2.finish();
           view1 = null;
           view2 = null;
-          var t = setTimeout(move, 3000);
+          var t = setTimeout(run, 3000);
         });
       }
     </script>
