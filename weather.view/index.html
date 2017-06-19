@@ -1,0 +1,19 @@
+<body>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+
+
+  function startTime() {
+    console.log("hello");
+	  $.get("weather.txt", function (data) {
+		  var idx = $(data).find("ts").text();
+		  var weather = $(data).find('data[seq="'+idx+'"]');
+		  console.log(weather.find("wfKor").text());
+		  console.log(weather.find("temp").text() + "'C");
+	  });
+
+    var t = setTimeout(startTime, 500);
+  }
+
+	</script>
+</body>

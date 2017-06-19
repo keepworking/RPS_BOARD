@@ -21,7 +21,7 @@
           $(this).css("left","100%");
           $(this).css("z-index","1");
         });
-        length = $('section#view').length
+        length = $('section#view').length;
         var view1 = $('section#view').eq(a);
         view1.css("left","0%");
         view1.css("z-index","-1");
@@ -31,6 +31,9 @@
       }
 
       function run() {
+        if (length == 1) {
+          return;
+        }
         window.requestAnimationFrame(move);
       }
 
@@ -100,14 +103,20 @@
       top menu
     </div>
     <section id="view">
-      <iframe src="clock.view"></iframe>
+      <iframe src="menu.view/index.html"></iframe>
     </section>
     <section id="view">
-      <iframe src="img.view"></iframe>
+      <iframe src="img.view/index.html"></iframe>
     </section>
     <section id="view">
-      <iframe src="menu.view"></iframe>
+      <iframe src="clock.view/index.html"></iframe>
     </section>
+    <section id="view">
+      <iframe src="food.view/index.html"></iframe>
+    </section>
+    <!--
+
+    -->
 
   </body>
 </html>

@@ -19,22 +19,43 @@
       }
       #menutable table {
         width: 100%;
+        border-collapse: collapse;
       }
+
+
+
       #menutable table td{
-         text-align: center;
+         text-align: right;
+         padding : 0.1em;
+      }
+
+      #menutable table tr td:first-child {
+        text-align: left;
+      }
+
+      #menutable table th{
+         text-align: right;
+         border: 0px;
+         border-bottom: 0.1em solid #000;
+      }
+
+      #menutable table tr th:first-child {
+        text-align: left;
       }
 
       #menutable p {
         font-size: 5.5vw;
-        margin: 1vh;
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
         font-weight: bold;
+        border-bottom: 0.2em solid #000;
       }
     </style>
   </head>
   <body>
     <div id="menutable">
-      <center><p>맛있을 만두 하지</p></center>
-      <hr>
+      <p>맛있을 만두 하지</p>
       <table>
         <tr>
           <th>이름</th><th>가격</th>
