@@ -9,6 +9,7 @@
       var a = 0;
       var length = 1;
       var waitTime = 3000;
+      var speed = 1500;
       function start() {
         setting();
         var t = setTimeout(run, waitTime);
@@ -36,11 +37,11 @@
 
       function move() {
         console.log("move");
-        a++;
         a = a%(length);
         var view1 = $('section#view').eq(a);
         var view2 = $('section#view').eq((a+1)%length);
-        view2.animate({left: "0%"},function(){
+        a++;
+        view2.animate({left: "0%"},speed,function(){
           view1.css("left","100%");
           view1.css("z-index","1");
           view2.css("z-index","-1");
