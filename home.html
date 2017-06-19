@@ -6,7 +6,8 @@
 
     <script type="text/javascript">
       //$("body").scroll
-      var a = 1;
+      var a = 0;
+      var length = 1;
       var waitTime = 3000;
       function start() {
         setting();
@@ -15,12 +16,14 @@
       }
 
       function setting() {
-        var view1 = $('#view[idx="'+(a)+'"]');
-        var view2 = $('#view[idx="'+(3-a)+'"]');
+        $( "section#view" ).each(function( index ) {
+          $(this).css("left","100%");
+          $(this).css("z-index","1");
+        });
+        length = $('section#view').length
+        var view1 = $('section#view').eq(a);
         view1.css("left","0%");
         view1.css("z-index","-1");
-        view2.css("left","100%");
-        view2.css("z-index","1");
         view1 = null;
         view2 = null;
         console.log("setting finish");
@@ -32,13 +35,11 @@
 
 
       function move() {
-        if(a == 1){
-          a = 2;
-        }else{
-          a = 1;
-        }
-        var view1 = $('#view[idx="'+(a)+'"]');
-        var view2 = $('#view[idx="'+(3-a)+'"]');
+        console.log("move");
+        a++;
+        a = a%(length);
+        var view1 = $('section#view').eq(a);
+        var view2 = $('section#view').eq((a+1)%length);
         view2.animate({left: "0%"},function(){
           view1.css("left","100%");
           view1.css("z-index","1");
@@ -97,11 +98,14 @@
     <div id="bar">
       top menu
     </div>
-    <section id="view" idx="1">
+    <section id="view">
       <iframe src="clock.view/index.html"></iframe>
     </section>
-    <section id="view" idx="2">
+    <section id="view">
       <iframe src="img.view/index.html"></iframe>
+    </section>
+    <section id="view">
+      <iframe src="http://sgnhi.org"></iframe>
     </section>
 
   </body>
