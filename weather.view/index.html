@@ -15,8 +15,10 @@
 				var wtext = weather.find("wfKor").text();
 				var wtemp = weather.find("temp").text();
 				var whumi = weather.find("reh").text();
+				var local = $(data).find("category").text();
 				document.getElementById('weather').innerHTML = wtext + "<br>"
 						+ wtemp + "℃<br>" + whumi + "%";
+				document.getElementById('location').innerHTML = local;
 			});
 
 			var t = setTimeout(startTime, 60000);
@@ -43,7 +45,17 @@
 			font-size: 7vw;
 			text-align: right;
 		}
+
+		div#location {
+			color: white;
+			position: fixed;
+			left: 0.5em;
+			top: 0.5em;
+			font-size: 4vw;
+			text-align: right;
+		}
 		</style>
 		<div id="weather"></div>
+		<div id="location"></div>
 	</body>
 </html>
