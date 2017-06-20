@@ -15,7 +15,8 @@
         padding: 0;
         background-color: rgb(254, 255, 190);
       }
-      #menutable {
+
+      div#menutable {
         position:absolute;
         top:50%;
         left:50%;
@@ -23,39 +24,30 @@
         font-size: 4.2vw;
         width: 80vw;
       }
+
       #menutable table {
         width: 100%;
         border-collapse: collapse;
-      }
-
-
-
-      #menutable table td{
-         text-align: right;
-         padding : 0.1em;
-      }
-
-      #menutable table tr td:first-child {
-        text-align: left;
-      }
-
-      #menutable table th{
-         text-align: right;
-         border: 0px;
-         border-bottom: 0.1em solid #000;
-      }
-
-      #menutable table tr th:first-child {
-        text-align: left;
-      }
-
-      #menutable p {
-        font-size: 5.5vw;
-        margin: 0px;
-        padding: 0px;
-        text-align: center;
         font-weight: bold;
-        border-bottom: 0.2em solid #000;
+      }
+
+      #menutable table tr:nth-child(2) td{
+        text-align: center;
+      }
+
+      #menutable table tr:first-child td{
+         width: 20vw;
+         height: 4em;
+         transform: rotate(90deg);
+        writing-mode: vertical-rl;
+      }
+      #menutable p {
+        text-align: center;
+        font-size: 6vw;
+        margin: 0px;
+        margin-bottom: 1em;
+        font-weight: bold;
+        border-bottom: 0.1em solid #000;
       }
     </style>
   </head>
@@ -64,11 +56,12 @@
       <p>맛있을 만두 하지</p>
       <table>
         <tr>
-          <th>이름</th><th>가격</th>
+          <td>군만두</td><td>찐만두</td><td>찰떡만두</td><td>김치만두</td>
         </tr>
         <tr>
-          <td>군만두</td><td>5,000원</td>
+          <td>5.0</td><td>4.0</td><td>8.0</td><td>7.0</td>
         </tr>
+        <!--
         <tr>
           <td>찐만두</td><td>4,000원</td>
         </tr>
@@ -78,6 +71,7 @@
         <tr>
           <td>김치만두</td><td>7,000원</td>
         </tr>
+        -->
       </table>
     </div>
   </body>
