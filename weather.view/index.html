@@ -16,7 +16,7 @@
 				var wtemp = weather.find("temp").text();
 				var whumi = weather.find("reh").text();
 				document.getElementById('weather').innerHTML = wtext + "<br>"
-						+ wtemp + "'C<br>" + whumi + "%";
+						+ wtemp + "℃<br>" + whumi + "%";
 			});
 
 			var t = setTimeout(startTime, 60000);
@@ -36,13 +36,13 @@
 		}
 
 		p {
-		 margin: 0;
-		 font-size: 8vw;
-		 color: white;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
+			margin: 0;
+			font-size: 6vw;
+			color: white;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
 		}
 
 		section > img {
